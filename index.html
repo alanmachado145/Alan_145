@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Atardecer y Amor</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(to top, #ff9a9e, #fad0c4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .sun {
+      position: absolute;
+      bottom: 10%;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, #FFD700, #FFA500);
+      border-radius: 50%;
+      animation: sunset 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes sunset {
+      0% { bottom: 10%; }
+      100% { bottom: 60%; }
+    }
+
+    .message {
+      position: relative;
+      z-index: 1;
+      background: rgba(255, 255, 255, 0.7);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      max-width: 500px;
+      text-align: center;
+      font-size: 1.3rem;
+      color: #d6336c;
+    }
+
+    .message::before {
+      content: "💖✨";
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .stars {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      pointer-events: none;
+    }
+
+    .star {
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 2s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0.2; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sun"></div>
+  <div class="stars" id="stars"></div>
+  <div class="message" id="message">
+    Nunca me voy a arrepentir de haber respondido ese mensaje a la madrugada porque conocí al amor de mi vida 🥺💝<br>
+    Y nunca me voy a olvidar ese lindo momento 💖✨
+  </div>
+
+  <script>
+    // Crear estrellas aleatorias
+    const starsContainer = document.getElementById('stars');
+    for (let i = 0; i < 100; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      star.style.top = Math.random() * 100 + '%';
+      star.style.left = Math.random() * 100 + '%';
+      star.style.animationDelay = Math.random() * 2 + 's';
+      starsContainer.appendChild(star);
+    }
+  </script>
+</body>
+</html>
